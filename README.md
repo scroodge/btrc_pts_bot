@@ -1,3 +1,3 @@
 # btrc_pts_bot
 
-Small bot too generate some data
+Small bot to generate some data
