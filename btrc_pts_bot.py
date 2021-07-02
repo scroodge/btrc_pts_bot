@@ -4,13 +4,8 @@ import telebot
 
 token = ""
 
+
 bot = telebot.TeleBot(token)
-
-
-#PUT FILE NAME BLOCK
-def filename():
-    f = "week26.xls"
-    return (f)
 
 #CURRENT WEEK BLOCK
 def weekdays():
@@ -50,67 +45,62 @@ def handle_text(message):
 #Функция обработки номера ПТС
 @bot.message_handler(func=lambda mess: 'Александрина' == mess.text, content_types=['text'])
 def week_aleks(message):
-    file = filename()
-    xlsx = pd.ExcelFile(file)
-    df = pd.read_excel(xlsx, "Лист1")
-    send = ('Расписание ПТС Александрина на ' + weekdays() + ' cледующее:\n')
+    url = ('pandas.html')
+    dfs = pd.read_html(url, encoding='utf8', keep_default_na=False)
+    send = ('Расписание на ' + weekdays() + ' для')
     bot.reply_to(message, send)
     i = 0
-    while i < 7:
-       day = str(df.loc[i]['Day']) + '\n' + str(df.loc[i]['Александрина'])
+    while i <= 7:
+       day = (str(dfs[0][0][i]) + '\n' + str(dfs[0][1][i]))
        bot.reply_to(message, day)
        i = i + 1
 
 @bot.message_handler(func=lambda mess: 'Ефросиния' == mess.text, content_types=['text'])
 def week_efrosinia(message):
-    file = filename()
-    xlsx = pd.ExcelFile(file)
-    df = pd.read_excel(xlsx, "Лист1")
-    send = ('Расписание ПТС Ефросиния на ' + weekdays() + ' cледующее:\n')
+    url = ('pandas.html')
+    dfs = pd.read_html(url, encoding='utf8', keep_default_na=False)
+    send = ('Расписание на ' + weekdays() + ' для')
     bot.reply_to(message, send)
     i = 0
-    while i < 7:
-        day = str(df.loc[i]['Day']) + str(df.loc[i]['Ефросиния'])
+    while i <= 7:
+        day = (str(dfs[0][0][i]) + '\n' + str(dfs[0][2][i]))
         bot.reply_to(message, day)
         i = i + 1
 
 @bot.message_handler(func=lambda mess: 'Павлина' == mess.text, content_types=['text'])
 def week_pavlina(message):
-    file = filename()
-    xlsx = pd.ExcelFile(file)
-    df = pd.read_excel(xlsx, "Лист1")
-    send = ('Расписание ПТС Павлина на ' + weekdays() + ' cледующее:\n')
+    url = ('pandas.html')
+    dfs = pd.read_html(url, encoding='utf8', keep_default_na=False)
+    send = ('Расписание на ' + weekdays() + ' для')
     bot.reply_to(message, send)
     i = 0
-    while i < 7:
-        day = str(df.loc[i]['Day']) + str(df.loc[i]['Павлина'])
+    while i <= 7:
+        day = (str(dfs[0][0][i]) + '\n' + str(dfs[1][1][i]))
         bot.reply_to(message, day)
         i = i + 1
 
 
 @bot.message_handler(func=lambda mess: 'Рагнеда' == mess.text, content_types=['text'])
 def week_ragneda(message):
-    file = filename()
-    xlsx = pd.ExcelFile(file)
-    df = pd.read_excel(xlsx, "Лист1")
-    send = ('Расписание ПТС Рагнеда на ' + weekdays() + ' cледующее:\n')
+    url = ('pandas.html')
+    dfs = pd.read_html(url, encoding='utf8', keep_default_na=False)
+    send = ('Расписание на ' + weekdays() + ' для')
     bot.reply_to(message, send)
     i = 0
-    while i < 7:
-        day = str(df.loc[i]['Day']) + str(df.loc[i]['Рагнеда'])
+    while i <= 7:
+        day = (str(dfs[0][0][i]) + '\n' + str(dfs[1][2][i]))
         bot.reply_to(message, day)
         i = i + 1
 
 @bot.message_handler(func=lambda mess: 'Янина' == mess.text, content_types=['text'])
 def week_yanina(message):
-    file = filename()
-    xlsx = pd.ExcelFile(file)
-    df = pd.read_excel(xlsx, "Лист1")
-    send = ('Расписание ПТС Янина на ' + weekdays() + ' cледующее:\n')
+    url = ('pandas.html')
+    dfs = pd.read_html(url, encoding='utf8', keep_default_na=False)
+    send = ('Расписание на ' + weekdays() + ' для')
     bot.reply_to(message, send)
     i = 0
-    while i < 7:
-        day = str(df.loc[i]['Day']) + str(df.loc[i]['Янина'])
+    while i <= 7:
+        day = (str(dfs[0][0][i]) + '\n' + str(dfs[2][1][i]))
         bot.reply_to(message, day)
         i = i + 1
 
