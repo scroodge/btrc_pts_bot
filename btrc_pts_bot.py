@@ -2,7 +2,7 @@ import pandas as pd
 import datetime
 import telebot
 
-token = ""
+token = "YOUR TELEGRAM TOKEN"
 
 
 bot = telebot.TeleBot(token)
